@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:#8B668B">
+<form id="form" onsubmit="return false;" style="text-align:center; align:center; color:red; font-family:Verdana;">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+Fahrenheit: <input type="number" id="userFahr" onkeyup="celsiusConverter(this.value)" style="background-color:#A000FF"/>
+Celsius: <input type="number" id="userCel" onkeyup="fahrenheitConverter(this.value)" style="background-color:#A000FF"/>
+</form>
+<div id="messageBox">
+    <script LANGUAGE="JAVASCRIPT">
+function celsiusConverter(val){document.getElementById("userCel").value = (document.getElementById("userFahr").value * 9 / 5 + 32).toFixed(2);}
+function fahrenheitConverter(val){document.getElementById("userFahr").value = ((document.getElementById("userCel").value -32) * 5 / 9).toFixed(2);}
+</script>
+</div>
+</body>
+</html>
