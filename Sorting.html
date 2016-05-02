@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorting Numbers</title>
+</head>
+<body>
+<form id="form" style="text-align:center;">
+    <br><br><br><br>
+    Enter an array of numbers: <input type="text" id="userInput"/><br>
+    <button type="button" onclick="sortNumbers(1)" id="try1">SORT IT HIGHEST TO LOWEST!</button>
+    <button type="button" onclick="sortNumbers(2)" id="try2">SORT IT LOWEST TO HIGHEST!</button>
+    <p align="center" id="alert">Separate numbers with comma(s) : ( , )</p>
+</form>
+<script>
+
+function sortNumbers(mode){
+    input = (document.getElementById("userInput").value).split(",");
+    for (var i=0; i<=input.length-1; i++){
+    input[i]=parseInt(input[i]);
+        if (isNaN(input[i])){
+        alert("INVALID INPUT: Please enter numbers only.");
+        return false;
+        }
+    }
+    if (mode==1){alert(bubbleSort(input));}
+    else {alert(bubbleReverse(bubbleSort(input)));}
+
+}
+
+function bubbleSort(array){
+    var swapped;
+    do {
+        swapped = false;
+        for (var i=0; i < array.length-1; i++) {
+            if (array[i] > array[i+1]) {
+                var temporary = array[i];
+                array[i] = array[i+1];
+                array[i+1] = temporary;
+                swapped = true;
+            }
+        }
+    } while (swapped);
+    return array;
+}
+function bubbleReverse(array) {
+ var reversed = new Array;
+    for(var i = array.length-1; i >= 0; i--) {
+        reversed.push(array[i]);
+    }
+    return reversed;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorting Numbers</title>
+</head>
+<body>
+<form id="form" style="text-align:center;">
+    <br><br><br><br>
+    Enter names to be sorted: <input type="text" id="userInput"/><br>
+    <button type="button" onclick="sortAlphabetical(1)" id="try1">SORT IT ALPHABETICALLY!</button>
+    <button type="button" onclick="sortAlphabetical(2)" id="try2">SORT IT UN-ALPHABETICAL!</button>
+    <p align="center" id="alert">Separate numbers with comma(s) : ( , )</p>
+</form>
+<script>
+
+function sortAlphabetical(mode){
+    input = (document.getElementById("userInput").value).split(",");
+    var isAlpha = function(array){if(/[^a-zA-Z0-9]/.test(array)){return false;} return true;}
+    if (isAlpha(input)){
+        for (var i=0; i<=input.length-1; i++){input[i]=(input[i]).toLowerCase()};
+        if (mode==1){alert(bubbleSort(input));}
+        else {alert(bubbleReverse(bubbleSort(input)));}
+    }
+    else {alert("INVALID INPUT: Please enter names only.")}
+}
+
+function bubbleSort(array){
+    var swapped;
+    do {
+        swapped = false;
+        for (var i=0; i < array.length-1; i++) {
+            if (array[i] > array[i+1]) {
+                var temporary = array[i];
+                array[i] = array[i+1];
+                array[i+1] = temporary;
+                swapped = true;
+            }
+        }
+    } while (swapped);
+    return array;
+}
+function bubbleReverse(array) {
+ var reversed = new Array;
+    for(var i = array.length-1; i >= 0; i--) {
+        reversed.push(array[i]);
+    }
+    return reversed;
+}
+</script>
+</body>
+</html>
