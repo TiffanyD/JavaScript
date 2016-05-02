@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Number Guessing Game </title>
+</head>
+<body style="background-color:Cyan">
+    <form id="form" style="text-align:center; align:center;">
+        <img src="http://images.clipartpanda.com/question-marks-background-200px-Question_mark.svg.png" align="middle" />
+    <br><br><br><br>
+    Guess a Number: <input type="number" id="userGuess"/><br>
+        <!----><button type="button" onclick="randomNumber()" id="try">TRY IT!</button>
+    </form>
+    <p id="paragraph" style="text-align:center;"> Enter your guess... (From 1 to 100) </p>
+<script>
+randomNum = Math.floor((Math.random() * 100) + 1);
+count = 1;
+console.log(randomNum);
+    function randomNumber()
+    {
+        count +=1;
+        if (count<5){document.getElementById("try").innerHTML = "YOU HAVE "+(6-count)+" TRIES LEFT!!"}
+        if (count==5){document.getElementById("try").innerHTML = "YOU HAVE ONE TRY LEFT!!"}
+        if (count>5) {document.getElementById("try").innerHTML = "GAME OVER!";
+        document.getElementById("paragraph").innerHTML = "YOU LOSE!!! :( The Random Number is: " + randomNum;
+        return x;}
+        try{var input = parseInt(document.getElementById("userGuess").value);}
+        catch (err){alert("wow")}
+        if (100>=input && !isNaN(input)){
+            if (randomNum == input) {
+            document.getElementById("try").innerHTML = "YOU WIN!!"
+            document.getElementById("paragraph").innerHTML = ":D";
+            }
+            else {
+                if (count<=5) {
+                    if (randomNum > input){document.getElementById("paragraph").innerHTML = "WRONG!! GO HIGHER!!"}
+                    if (randomNum < input){document.getElementById("paragraph").innerHTML = "WRONG!! GO LOWER!!!"}
+                }
+            }
+        }
+        else {
+        document.getElementById("paragraph").innerHTML = "INVALID INPUT!!!"
+        }
+    }
+
+</script>
+</body>
+</html>
