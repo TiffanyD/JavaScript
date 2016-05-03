@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+Enter number: <input type="text" onchange="treeFunction(this.value)"/><br>
+<center><p id="test"></p></center>
+<script language="JavaScript">
+    function treeFunction(value)
+{
+    var number = parseInt(value)
+    ast = "*"
+    var i = 0
+    while (i<number)
+    {
+        document.getElementById("test").innerHTML += ast + "<br>";
+        ast += " *";
+        i++
+    }
+}
+</script>
+</body>
+</html>
