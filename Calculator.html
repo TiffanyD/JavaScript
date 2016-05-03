@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Calculator </title>
+</head>
+<body style="background-color:cyan">
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<center>First Number: <input type="text" id="first"/><br></center>
+<center>Second Number: <input type="text" id="second"/><br></center>
+<center><form action="test.php" method="post">
+    <select style="width:100px;" id="op">
+    <option id="+" value="add">+</option>
+    <option id="-" value="sub">-</option>
+    <option id="*" value="mul">*</option>
+    <option id="/" value="div">/</option>
+</select>
+    <br><button type="button" onclick="calculator()"> CALCULATE! </button>
+    </form>
+</center>
+<script>
+var i = 0;
+    function calculator(){
+    if (i==0){document.getElementById("result").value = document.getElementById("first").value}
+    first = parseInt(document.getElementById("result").value)
+    document.getElementById("first").value = "----USE RESULT TO ENTER MORE---"
+    var operation = document.getElementById("op").value;
+    var second = parseInt(document.getElementById("second").value)
+    switch (operation){
+        case 'add':
+            document.getElementById("result").value = first + second;
+        break;
+        case 'sub':
+            document.getElementById("result").value = first - second;
+        break;
+        case 'mul':
+            document.getElementById("result").value = first * second;
+        break;
+        case 'div':
+            document.getElementById("result").value = first / second;
+        break;
+    }
+    i++;
+}
+</script>
+<center>RESULT : <input type="text" id="result"/><br></center></center>
+</body>
+</html>
