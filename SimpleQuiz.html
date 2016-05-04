@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Quiz Program</title>
+</head>
+<body background="http://cdn.paper4pc.com/images/loki-wallpaper-4.jpg" style="color: white">
+<center>
+    <p>1. Who is the guy with a round shield?</p>
+    <select size="2" id="1">
+    <option value="1">Iron Man</option>
+    <option value="2">Captain America</option>
+    </select>
+
+    <p>2. Who created that shield?</p>
+    <select size="2" id="2">
+        <option value="1">Iron Man</option>
+        <option value="2">Iron Man's Father</option>
+    </select>
+
+    <p>3. Who is Captain America's best friend?</p>
+    <select size="2" id="3">
+        <option value="1">Iron Man</option>
+        <option value="2">Bucky</option>
+    </select>
+
+    <p>4. What is Spider Man's real name?</p>
+    <select size="2" id="4">
+        <option value="1">Peter Parker</option>
+        <option value="2">Andrew Garfield</option>
+    </select>
+
+    <p>5. Besides Thor, who else has the power to lift his hammer?</p>
+    <select size="2" id="5">
+        <option value="1">Vision</option>
+        <option value="2">Captain America</option>
+    </select>
+
+    <p>6. In the near future, who is Scarlet Witch's husband?</p>
+    <select size="2" id="6">
+        <option value="1">Loki</option>
+        <option value="2">Vision</option>
+    </select>
+
+    <p>7. Who is Son of Satan's Father?</p>
+    <select size="2" id="7">
+        <option value="1">Loki</option>
+        <option value="2">Hulk</option>
+    </select>
+
+    <p>8. Kid Loki was once part of the Young Avengers.</p>
+    <select size="2" id="8">
+        <option value="1">True</option>
+        <option value="2">False</option>
+    </select>
+
+    <p>9. Who is entitled the God of Mischief?</p>
+    <select size="2" id="9">
+        <option value="1">Son of Satan</option>
+        <option value="2">Loki</option>
+    </select>
+
+    <p>10. Who created this quiz? (Whole Name)</p>
+    <input type="text" id="10" />
+    <button type="button" onclick="calculateResult()" id="try1"> Submit! </button>
+</center>
+<script>
+var points = 0;
+    function calculateResult(){
+    ans = []
+    ans10 = document.getElementById("10").value.toLowerCase().split(" ").join("")
+    document.getElementById("10").value = ans10
+    console.log(document.getElementById("10").value)
+    solution = [2,2,2,1,1,2,1,1,2,'tiffanydomugho']
+    for (i=1;i<=10;i++){
+        ans.push(document.getElementById(i.toString()).value);
+    }
+    for (x in ans){
+        if (ans[x] == solution[x])
+            points++
+    }
+    alert("Your total point(s) is : " + points)
+}
+
+</script>
+</body>
+</html>

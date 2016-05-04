@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Lists</title>
+</head>
+<body bgcolor="#FFE4B5">
+<center>
+    <br><br><br><br><br><br><br><br>
+    <h1> SIMPLE CONTACT LIST </h1>
+    <table>
+        <tr><td>Name:</td> <td><input type="text" id="name" /></td></tr>
+        <tr><td>Address:</td> <td><input type="text" id="add" /></td></tr>
+        <tr><td>Email-Address:</td> <td><input type="text" id="email"></td></tr>
+        <tr><td>Contact No: #</td> <td><input type="text" id="num"></td></tr>
+    </table>
+<button type="button" onclick="contacts(document.getElementById('name').value)">SAVE!</button><br>
+    Search: <input type="text" id="search" style="visibility:hidden" value="Enter name to search here"><br>
+<button type="button" onmouseover="showSearch()" onclick="search(document.getElementById('search').value)">SEARCH!</button>
+</center>
+<script>
+    var array_of_people = [];
+    function Person(name,address,email,contact){
+        this.name = name
+        this.add = address
+        this.email = email
+        this.num = contact
+    }
+    function showSearch(){document.getElementById("search").style.visibility = 'visible';}
+    function search(name){
+        for (x in array_of_people){
+            if (array_of_people[x].name == name) {alert(array_of_people[x].name+"\n"+array_of_people[x].add+"\n"+array_of_people[x].email+"\n"+array_of_people[x].num)}
+        }
+    }
+    function contacts(name){
+        next_person = name
+        next_person = new Person(document.getElementById("name").value,document.getElementById("add").value,document.getElementById("email").value,document.getElementById("num").value)
+        array_of_people.push(next_person)
+    }
+</script>
+</body>
+</html>

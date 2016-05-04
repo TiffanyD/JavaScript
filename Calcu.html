@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Calculator </title>
+</head>
+<body>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<center>Enter Number: <input type="text" id="input"/><br></center>
+<center>
+    <button type="button" onclick="add('+')"> + </button>
+    <button type="button" onclick="add('-')"> - </button>
+    <button type="button" onclick="add('*')"> * </button>
+    <button type="button" onclick="add('/')"> / </button><br>
+    <button type="button" onclick="add('1')"> 1 </button>
+    <button type="button" onclick="add('2')"> 2 </button>
+    <button type="button" onclick="add('3')"> 3 </button><br>
+    <button type="button" onclick="add('4')"> 4 </button>
+    <button type="button" onclick="add('5')"> 5 </button>
+    <button type="button" onclick="add('6')"> 6 </button><br>
+    <button type="button" onclick="add('7')"> 7 </button>
+    <button type="button" onclick="add('8')"> 8 </button>
+    <button type="button" onclick="add('9')"> 9 </button><br>
+    <button type="button" onclick="calculator()"> CALCULATE! </button>
+</center>
+<script>
+    function add(operation){
+        document.getElementById("input").value += operation
+    }
+    function calculator(){
+        x = (document.getElementById("input").value).split("");
+        y = x.join("");
+        document.getElementById("input").value = eval(y)
+    }
+</script>
+</body>
+</html>
