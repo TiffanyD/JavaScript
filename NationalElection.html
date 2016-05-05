@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Election of Presidents</title>
+</head>
+<body bgcolor="#FFE4B5"><br><br><br><br><br><br>
+    <center>Who are you going to vote for President? <br><br>
+        <table>
+            <tr><td> ID: 1 </td><td> Name: Rodrigo Duterte </td><td> Age: 70 </td></tr>
+            <tr><td> ID: 2 </td><td> Name: Grace Poe</td><td> Age: 50 </td></tr>
+            <tr><td> ID: 3 </td><td> Name: Miriam Santiago</td><td> Age: 72 </td></tr>
+            <tr><td> ID: 4 </td><td> Name: Mar Roxas</td><td> Age: 65 </td></tr>
+            <tr><td> ID: 5 </td><td> Name: Jejomar Binay</td><td> Age: 75 </td></tr>
+        </table>
+        <br>
+    <input type="text" id="input" placeholder="Enter name of Candidate here" style="text-align:center"/><br>
+    <button type="button" onclick="Election()">Submit!</button>
+        <p id="result"> </p>
+    </center>
+<script language="JavaScript">
+<!-- Object in literal notation with all the information of people running for President -->
+var allCandidates = {
+    "rodrigo duterte": {ID: "1", name: "rodrigo duterte", age: "70", description: "Leadership."},
+    "grace poe": {ID: "2", name: "grace poe", age: "50", description: "Congratulations, you have chosen a valid candidate."},
+    "miriam santiago": {ID: "3", name: "miriam santiago", age: "72", description: "Intelligence."},
+    "mar roxas": {ID: "4", name: "mar roxas", age: "65", description: "I am sorry but your candidate is blacklisted."},
+    "jejomar binay": {ID: "5", name: "jejomar binay", age: "75", description: "I am sorry but your candidate is blacklisted."}
+};
+<!-- Function checker to validate the user's answers -->
+function Election() {
+        var candidate = document.getElementById("input").value.toLowerCase();
+        var can = candidate.toString();
+        try {if (candidate == allCandidates[candidate].name){document.getElementById("result").innerHTML = allCandidates[candidate].description;}}
+        catch(error) { document.getElementById("result").innerHTML = "Name entered is not a candidate. Please try again."; }
+}
+</script>
+</body>
+</html>
